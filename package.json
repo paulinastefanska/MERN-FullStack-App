@@ -1,0 +1,16 @@
+{
+  "name": "MERN-FullStack-App",
+  "version": "1.0.0",
+  "description": "stack MERN",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all -p -l start:*",
+    "start:server": "cd server && node server.js",
+    "start:client": "cd client && yarn start"
+  },
+  "author": "Paulina",
+  "license": "MIT",
+  "dependencies": {
+    "npm-run-all": "4.1.5"
+  }
+}
