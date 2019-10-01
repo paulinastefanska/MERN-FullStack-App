@@ -32,14 +32,16 @@ export default function reducer(statePart = initialState, action = {}) {
 /* THUNKS */
 
 export const loadPostsRequest = () => {
-  return dispatch => {
+  return async dispatch => {
 
-    axios.get(`${API_URL}/posts`).then(res => {
+    try {
+
+      let res = await axios.get(`${API_URL}/posts`);
       dispatch(loadPosts(res.data));
-    })
-    .catch(err => {
-      console.log(err.message);
-    });
+
+    } catch(e) {
+      console.log(e.message);
+    }
 
   };
 };
