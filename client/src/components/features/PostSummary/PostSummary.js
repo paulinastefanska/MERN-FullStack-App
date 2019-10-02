@@ -8,7 +8,7 @@ import './PostSummary.scss';
 const PostSummary = ({ id, title, content }) => (
   <article className="post-summary">
     <SmallTitle>{title}</SmallTitle>
-    <p>{content}</p>
+    <HtmlBox>{content}</HtmlBox>
     <Button variant="primary">
       Read more
     </Button>
