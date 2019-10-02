@@ -8,6 +8,7 @@ const createActionName = name => `app/${reducerName}/${name}`;
 /* SELECTORS */
 
 export const getPosts = ({ posts }) => posts;
+export const getPostsCounter = ({ posts }) => posts.lenght;
 
 /* ACTIONS */
 
