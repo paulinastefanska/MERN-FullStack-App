@@ -6,7 +6,7 @@ class PostsCounter extends React.Component {
     const { counter } = this.props;
 
     return (
-            <div>{counter > 0 ? 'Posts amount: ' + counter : ' No posts '}</div>
+            <div>Posts amount: { counter > 0 ? counter : ' 0 ' }</div>
         );
     }
 
