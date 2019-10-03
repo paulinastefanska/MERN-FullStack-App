@@ -1,9 +1,11 @@
 import React from 'react';
 
+import SinglePost from "../../features/SinglePost/SinglePostContainer";
+
 const SinglePostPage = () => (
-  <div>
-    <h1>Single Post</h1>
-  </div>
+    <div>
+      <SinglePost />
+    </div>
 );
 
 export default SinglePostPage;
