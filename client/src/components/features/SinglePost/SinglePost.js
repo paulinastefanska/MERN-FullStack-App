@@ -12,6 +12,7 @@ class SinglePost extends React.Component {
   componentDidMount() {
     const { loadPost, match } = this.props;
     loadPost(match.params.id);
+
   }
 
   render() {
@@ -21,6 +22,7 @@ class SinglePost extends React.Component {
           return (
           	<div>
               <PageTitle>{ posts[0].title }</PageTitle>
+              <p>Author: { posts.author }</p>
               <HtmlBox>{ posts[0].content }</HtmlBox>
             </div>
           );  
@@ -43,9 +45,10 @@ SinglePost.propTypes = {
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
     })
   ),
-  loadPosts: PropTypes.func.isRequired,
+  loadPost: PropTypes.func.isRequired,
 };
 
 export default withRouter(props => <SinglePost {...props}/>);
