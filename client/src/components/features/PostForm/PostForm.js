@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
+import {resetRequest} from "../../../redux/postsRedux";
 import Editor from 'react-medium-editor';
 import 'medium-editor/dist/css/medium-editor.css';
 import 'medium-editor/dist/css/themes/default.css';
@@ -40,6 +41,7 @@ class PostForm extends React.Component {
 
     e.preventDefault();
     addPost(post);
+    resetRequest();
   }
 
   render() {
