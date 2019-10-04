@@ -50,6 +50,7 @@ SinglePost.propTypes = {
     })
   ),
   loadPost: PropTypes.func.isRequired,
+  resetRequest: PropTypes.func.isRequired,
 };
 
 export default withRouter(props => <SinglePost {...props}/>);
