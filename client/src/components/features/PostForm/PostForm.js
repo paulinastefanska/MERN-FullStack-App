@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
+import './PostForm.scss';
 
 import TextField from '../../common/TextField/TextField';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
@@ -19,20 +20,37 @@ class PostForm extends React.Component {
     }
   }
 
+  handleChange = (e) => {
+    const { post } = this.state;
+    this.setState({ post: { ...post, [e.target.name]: e.target.value }});
+  }
+
+  handleEditor = (text) => {
+    const { post } = this.state;
+    this.setState({ post: { ...post, content: text }});
+  }
+
   render() {
 
     const { post } = this.state;
+    const { handleChange } = this;
+    const { handleEditor } = this;
 
     return (
-      <div>
+      <form>
+
         <TextField
           label="Title"
           value={post.title}
+          onChange={handleChange}
+          name="title"
         />
 
         <TextField
           label="Author"
           value={post.author}
+          onChange={handleChange}
+          name="author"
         />
 
         <SectionTitle>Edit post content</SectionTitle>
@@ -40,12 +58,13 @@ class PostForm extends React.Component {
         <Editor
           className="content-editor"
           text={post.content}
+          onChange={handleEditor}
           options={{ placeholder: false, toolbar: { buttons: ['bold', 'italic', 'underline', 'anchor', 'h2', 'h3'] } }}
         />
 
         <Button variant="primary">Add post</Button>
 
-      </div>
+    </form>
     );
   }
 };
