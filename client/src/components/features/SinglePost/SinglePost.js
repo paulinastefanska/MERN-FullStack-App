@@ -22,7 +22,7 @@ class SinglePost extends React.Component {
           return (
           	<div>
               <PageTitle>{ posts[0].title }</PageTitle>
-              <p>Author: { posts.author }</p>
+              <p>Author: { posts[0].author }</p>
               <HtmlBox>{ posts[0].content }</HtmlBox>
             </div>
           );  
