@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import TextField from '../../common/TextField/TextField';
 import SectionTitle from '../../common/SectionTitle/SectionTitle';
 import Button from '../../common/Button/Button';
+import Editor from 'react-medium-editor';
+import 'medium-editor/dist/css/medium-editor.css';
+import 'medium-editor/dist/css/themes/default.css';
 
 class PostForm extends React.Component {
 
@@ -33,6 +36,12 @@ class PostForm extends React.Component {
         />
 
         <SectionTitle>Edit post content</SectionTitle>
+
+        <Editor
+          className="content-editor"
+          text={post.content}
+          options={{ placeholder: false, toolbar: { buttons: ['bold', 'italic', 'underline', 'anchor', 'h2', 'h3'] } }}
+        />
 
         <Button variant="primary">Add post</Button>
 
