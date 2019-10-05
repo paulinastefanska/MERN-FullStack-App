@@ -24,10 +24,10 @@ class Posts extends React.Component {
           return <Spinner />
 
         else if (request.pending === false && request.error !== null) 
-          return <Alert variant={'error'} children={request.error} />
+          return <Alert variant="error" children={request.error} />
         
         else if (request.pending === false && request.success === true && posts.length === 0) 
-          return <Alert variant={'info'} children={'- no posts -'} />
+          return <Alert variant="info" children="- no posts -" />
     }
 
 };
