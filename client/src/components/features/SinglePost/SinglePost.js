@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import {resetRequest} from "../../../redux/postsRedux";
+//import {resetRequest} from "../../../redux/postsRedux";
 
 import Spinner from '../../common/Spinner/Spinner';
 import Alert from "../../common/Alert/Alert";
@@ -22,11 +22,11 @@ class SinglePost extends React.Component {
 
     if (request.pending === false && request.success === true && posts.length > 0) 
           return (
-          	<div>
+          	<React.Fragment>
               <PageTitle>{ posts[0].title }</PageTitle>
               <p>Author: { posts[0].author }</p>
               <HtmlBox>{ posts[0].content }</HtmlBox>
-            </div>
+            </React.Fragment>
           );  
 
         else if (request.pending === true || request.success === null) 
