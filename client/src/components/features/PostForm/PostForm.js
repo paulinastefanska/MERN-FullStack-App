@@ -1,6 +1,5 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
 import {resetRequest} from "../../../redux/postsRedux";
 import Editor from 'react-medium-editor';
 import 'medium-editor/dist/css/medium-editor.css';
