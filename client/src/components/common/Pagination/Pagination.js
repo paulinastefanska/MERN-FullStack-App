@@ -4,9 +4,16 @@ import PropTypes from 'prop-types';
 import './Pagination.scss';
 
 class Pagination extends React.Component {
-	
+
 	state = {
 	  presentPage: this.props.initialPage || 1
+	}
+	
+	changePage = (newPage) => {
+	  const { onChangePage } = this.props;
+
+	  this.setState({ presentPage: newPage });
+	  onPageChange(newPage);
 	}
 
   render() {
