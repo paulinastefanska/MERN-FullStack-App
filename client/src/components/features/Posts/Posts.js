@@ -16,12 +16,15 @@ class Posts extends React.Component {
   }
 
   render() {
-  	const { posts, request } = this.props;
+  	const { posts, request, pagination } = this.props;
 
     if (request.pending === false && request.success === true && posts.length > 0) 
-          return 
-            <PostsList posts={posts} />
-            <Pagination pages={10} onPageChange={(page) => { console.log(page) }} />
+          return (
+            <div> 
+              <PostsList posts={posts} />
+              <Pagination pages={10} onPageChange={(page) => { console.log(page) }} />
+            </div>
+          );
 
         else if (request.pending === true || request.success === null) 
           return <Spinner />
