@@ -8,9 +8,9 @@ class Pagination extends React.Component {
 	state = {
 	  presentPage: this.props.initialPage || 1
 	}
-	
+
 	changePage = (newPage) => {
-	  const { onChangePage } = this.props;
+	  const { onPageChange } = this.props;
 
 	  this.setState({ presentPage: newPage });
 	  onPageChange(newPage);
@@ -18,7 +18,7 @@ class Pagination extends React.Component {
 
   render() {
 
-  const { pages, onPageChange } = this.props;
+  const { pages } = this.props;
   const { presentPage } = this.state;
   const { changePage } = this;
 
