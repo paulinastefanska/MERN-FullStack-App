@@ -40,3 +40,19 @@ exports.addPost = async function (req, res) {
   }
 
 };
+
+// get posts by range
+exports.getPostsByRange = async function (req, res) {
+
+  try {
+    let { startAt, limit } = req.params;
+
+    startAt = parseInt(startAt);
+    limit = parseInt(limit);
+    res.status(200).json(await Post.find().skip(startAt).limit(limit));
+
+  } catch(err) {
+    res.status(500).json(err);
+  }
+
+};
