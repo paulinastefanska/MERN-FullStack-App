@@ -1,7 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
-//import {resetRequest} from "../../../redux/postsRedux";
+import { BASE_URL } from '../../../config'
+import { FacebookProvider, Comments, ShareButton } from 'react-facebook';
 
 import Spinner from '../../common/Spinner/Spinner';
 import Alert from "../../common/Alert/Alert";
@@ -19,13 +20,22 @@ class SinglePost extends React.Component {
 
   render() {
   	const { posts, request } = this.props;
+    const { location } = this.props;
 
     if (request.pending === false && request.success === true && posts.length > 0) 
           return (
           	<React.Fragment>
               <PageTitle>{ posts[0].title }</PageTitle>
+              <FacebookProvider appId="965381443794607">
+                <ShareButton href={`${BASE_URL}/${location.pathname}`}>
+                  Share
+                </ShareButton>
+              </FacebookProvider>
               <p>Author: { posts[0].author }</p>
               <HtmlBox>{ posts[0].content }</HtmlBox>
+              <FacebookProvider appId="965381443794607">
+                <Comments href={`${BASE_URL}/${location.pathname}`} />
+              </FacebookProvider>
             </React.Fragment>
           );  
 
