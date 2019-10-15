@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { BASE_URL } from '../../../config'
 import { FacebookProvider, Comments, ShareButton } from 'react-facebook';
+import './SinglePost.scss';
 
 import Spinner from '../../common/Spinner/Spinner';
 import Alert from "../../common/Alert/Alert";
@@ -27,8 +28,8 @@ class SinglePost extends React.Component {
           	<React.Fragment>
               <PageTitle>{ posts[0].title }</PageTitle>
               <FacebookProvider appId="965381443794607">
-                <ShareButton href={`${BASE_URL}/${location.pathname}`}>
-                  Share
+                <ShareButton className="FbButton" href={`${BASE_URL}/${location.pathname}`}>
+                  Share on Facebook
                 </ShareButton>
               </FacebookProvider>
               <p>Author: { posts[0].author }</p>
