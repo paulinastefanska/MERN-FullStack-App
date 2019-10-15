@@ -84,7 +84,7 @@ export const loadPostsRequest = () => {
     dispatch(startRequest());
     try {
 
-      let res = await axios.get(`${API_URL}/posts`);
+      let res = await axios.get(`${BASE_URL}${API_URL}/posts`);
       dispatch(loadPosts(res.data));
       dispatch(endRequest());
 
@@ -101,7 +101,7 @@ export const loadSinglePostRequest = (id) => {
     dispatch(startRequest());
     try {
 
-      let res = await axios.get(`${API_URL}/posts/${id}`);
+      let res = await axios.get(`${BASE_URL}${API_URL}/posts/${id}`);
       dispatch(loadSinglePost(res.data));
       dispatch(endRequest());
 
@@ -118,7 +118,7 @@ export const addPostRequest = (post) => {
     dispatch(startRequest());
     try {
 
-      const res = await axios.post(`${API_URL}/posts`, post);
+      const res = await axios.post(`${BASE_URL}${API_URL}/posts`, post);
       dispatch(endRequest());
 
     } catch(e) {
@@ -137,7 +137,7 @@ export const loadPostsByPageRequest = (page, postsPerPage) => {
       const startAt = (page - 1) * postsPerPage;
       const limit = postsPerPage;
 
-      let res = await axios.get(`${API_URL}/posts/range/${startAt}/${limit}`);
+      let res = await axios.get(`${BASE_URL}${API_URL}/posts/range/${startAt}/${limit}`);
 
       const payload = {
         posts: res.data.posts,
