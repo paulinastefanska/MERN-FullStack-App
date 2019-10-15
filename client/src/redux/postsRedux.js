@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../config';
+import { BASE_URL } from '../config';
 
 // action name creator
 const reducerName = 'posts';
