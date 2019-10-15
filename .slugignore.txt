@@ -1,6 +1,0 @@
-# Heres a comment
-*.psd
-*.pdf
-*yarn.lock
-/test
-/spec
